@@ -7,18 +7,25 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-import logging
+class SoftDeletedCertificateView(generics.ListAPIView):
+    queryset = Certificate.objects.filter(deleted=True).order_by('certificate_id')  # Order by certificate_id (or another field)
+    serializer_class = CertificateSerializer
+    permission_classes = [AllowAny]  # Adjust permission as required
 
-logger = logging.getLogger(__name__)
+    def get(self, request, *args, **kwargs):
+        certificates = self.get_queryset()
+        serializer = self.get_serializer(certificates, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
 
 class CertificateCreateView(viewsets.ModelViewSet):
-    queryset = Certificate.objects.filter(deleted=False)
+    queryset = Certificate.objects.filter(deleted=False).order_by('id')
     serializer_class = CertificateSerializer
     permission_classes = [AllowAny]
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
 
     def create(self, request, *args, **kwargs):
-        logger.debug(f"POST request data: {request.data}")
+        print(f"POST request data: {request.data}")
         serializer = self.get_serializer(data=request.data)
         
         if serializer.is_valid():
@@ -45,7 +52,7 @@ class CertificateVerificationView(generics.GenericAPIView):
 
 
 class CertificateSoftDeleteView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self, request, certificate_id, *args, **kwargs):
         certificate = Certificate.objects.filter(certificate_id=certificate_id).first()
@@ -57,7 +64,7 @@ class CertificateSoftDeleteView(APIView):
 
 
 class CertificateRestoreView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self, request, certificate_id, *args, **kwargs):
         certificate = Certificate.objects.filter(certificate_id=certificate_id).first()

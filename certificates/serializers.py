@@ -5,7 +5,7 @@ from .models import Certificate, VerificationLog
 class CertificateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Certificate
-        fields = ['organization', 'certificate_id', 'client_name', 'issue_date', 'expiry_date', 'pdf_file']
+        fields = ['id', 'organization', 'certificate_id', 'client_name', 'issue_date', 'expiry_date', 'pdf_file']
 
     def validate(self, data):
         # Example of custom validation
