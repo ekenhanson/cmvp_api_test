@@ -4,6 +4,7 @@ cffi==1.16.0
 charset-normalizer==3.3.2
 cryptography==42.0.2
 defusedxml==0.8.0rc2
+dj-database-url==2.1.0
 Django==5.0.2
 django-allauth==0.61.1
 django-cors-headers==4.3.1
@@ -14,9 +15,12 @@ drf-yasg==1.21.7
 gunicorn==21.2.0
 idna==3.6
 inflection==0.5.1
+mysqlclient==2.2.4
 oauthlib==3.2.2
 packaging==23.2
 pillow==10.2.0
+psycopg2-binary==2.9.9
+psycopg2==2.9.9
 pycparser==2.21
 PyJWT==2.8.0
 python-social-auth==0.3.6
