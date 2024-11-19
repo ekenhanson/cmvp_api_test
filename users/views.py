@@ -13,7 +13,7 @@ from .serializers import LoginSerializer
 
 class OrganizationView(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
-    queryset = Organization.objects.all() # Specify the ordering here
+    queryset = Organization.objects.all().order_by('id')
     serializer_class = OrganizationSerializer
 
 class RegisterView(viewsets.ModelViewSet):
