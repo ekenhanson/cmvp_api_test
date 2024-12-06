@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     #Second Party Apps
     'users',        # Make sure this is included
     'certificates',  # Make sure this is included
@@ -62,8 +63,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # ]
 
 # Optional: Allow all origins (for development only)
-CORS_ALLOW_ALL_ORIGINS = True
 
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -78,24 +79,25 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Email configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'simultrain001@gmail.com'
-# EMAIL_HOST_PASSWORD = 'ygjb cylv qisl yzmh'  # App-specific password
-# DEFAULT_FROM_EMAIL = 'simultrain001@gmail.com'
-# EMAIL_DEBUG = True
+# Email settings for Hostinger
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.hostinger.com'
+EMAIL_PORT = 465  # SSL port
+EMAIL_USE_SSL = True  # Use SSL for secure connection
+EMAIL_USE_TLS = False  # Ensure this is explicitly set to False
+EMAIL_HOST_USER = 'ekenehanson@sterlingspecialisthospitals.com'  # Your Hostinger email address
+EMAIL_HOST_PASSWORD = '123@Qwertyqwerty@123'  # Your Hostinger email password
+DEFAULT_FROM_EMAIL = 'ekenehanson@sterlingspecialisthospitals.com'  # Default sender email
+
 
 # Email configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Your SMTP server address
-EMAIL_PORT = 587  # Your SMTP server port (587 is the default for SMTP with TLS)
-EMAIL_USE_TLS = True  # Whether to use TLS (True by default)
-EMAIL_HOST_USER = 'ekenehanson@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'pduw cpmw dgoq adrp'  # Your email password or app-specific password if using Gmail, etc.
-DEFAULT_FROM_EMAIL = 'ekenehanson@gmail.com'  # The default email address to use for sending emails
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'  # Your SMTP server address
+# EMAIL_PORT = 587  # Your SMTP server port (587 is the default for SMTP with TLS)
+# EMAIL_USE_TLS = True  # Whether to use TLS (True by default)
+# EMAIL_HOST_USER = 'ekenehanson@gmail.com'  # Your email address
+# EMAIL_HOST_PASSWORD = 'pduw cpmw dgoq adrp'  # Your email password or app-specific password if using Gmail, etc.
+# DEFAULT_FROM_EMAIL = 'ekenehanson@gmail.com'  # The default email address to use for sending emails
 
 
 TEMPLATES = [
@@ -130,13 +132,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cmvpdb',
-        'USER': 'cmvpdb_user',
-        'PASSWORD': '7aOnAtHaEZMkeUNH1fZjuKL3ENmiMhdC',
-        'HOST': 'dpg-csq8bqq3esus73emp4tg-a.oregon-postgres.render.com',
-        'PORT': '5432',
+        'NAME': 'cmvpdb_ynn6',
+        'USER': 'cmvpdb_ynn6_user',
+        'PASSWORD': 'x1NShKCQERKnTlSS8EuOH22Pa4yKCsED',
+        'HOST': 'dpg-ct967jhopnds73e4c590-a.oregon-postgres.render.com',
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
+
 
 
 SIMPLE_JWT = {
