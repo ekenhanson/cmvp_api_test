@@ -122,20 +122,20 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cmvpdb_ynn6',
-        'USER': 'cmvpdb_ynn6_user',
-        'PASSWORD': 'x1NShKCQERKnTlSS8EuOH22Pa4yKCsED',
-        'HOST': 'dpg-ct967jhopnds73e4c590-a.oregon-postgres.render.com',
+        'NAME': 'cmvp_db_jgdw',
+        'USER': 'cmvp_db_jgdw_user',
+        'PASSWORD': 'DbDdhmNP8kVuSD9AVZ5mMS3JZDIodbBA',
+        'HOST': 'dpg-cti0m9t6l47c738dc700-a.oregon-postgres.render.com',
         'PORT': '5432',  # Default PostgreSQL port
     }
 }
